@@ -1,0 +1,21 @@
+@startuml
+''commento
+''CTRL+Z => UNDO
+:Cliente: as c
+
+actor X
+
+rectangle Banca {
+    (pagare) as p
+    (emettere ricevuta)
+    usecase s as "
+        applicare sconto
+        --
+        E.P.: se cliente possiede codice sconto
+    "
+}
+
+p <.. s : <<extend>>
+c -- p
+p ..> (emettere ricevuta) : <<include>>
+@enduml
