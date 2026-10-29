@@ -1,0 +1,19 @@
+@startuml
+
+''left to right direction
+
+:Diportista: as d
+:Ormeggiatore: as o
+:Direttore Porto: as dp
+:Socio del Circolo: as sc
+
+'' confini del sistema
+rectangle Porto {
+    (Effetuare pagamento) as pay
+    (Prenotare ormeggio) as po
+}
+
+d -- po
+po ..> pay : <<include>>
+
+@enduml

@@ -1,0 +1,24 @@
+@startuml
+:Consigliere: as c
+:Capo Consigliere: as cc
+:Sindaco: as s
+
+''CTRL+D:  Duplica linea
+rectangle NeoTokyo {
+    (Convocare sessioni straordinarie) as css
+    (Convocare sessioni Ordinarie) as cso
+    (Organizzare incontri sindaco) as is
+    (Dirama comunicazioni ai cittadini) as dcom
+    (Convocare sessioni) as cs
+}
+
+cs <|-- css
+cs <|-- cso
+
+s -- css
+'' | = pipe
+c <|-- cc
+c -- dcom
+cc -- is
+c -- cs
+@enduml
