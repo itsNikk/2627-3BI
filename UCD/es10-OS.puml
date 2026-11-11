@@ -1,0 +1,41 @@
+@startuml
+:Comandante: as c
+:Ingegnere: as i
+:Equipaggio: as e
+:Turista: as t
+
+rectangle OrbitStay {
+(Gestire assegnazione moduli) as gam
+(Gestire ospiti) as go
+    (Richiedere attività EVA) as eva
+    usecase pm as "
+    Prenotare modulo
+    --
+    E.P.: possesso certificazione e slot disponibile
+    "
+    (Eseguire manutenzione) as em
+    (concludere addestramento) as ca
+    (Accedere al sistema) as aas
+    (Consultare anomalie) as ca
+    (Segnalare anomalia) as sa
+    (Attivare modulo) as am
+    (Controllare certificazione medica) as ccm
+}
+
+t -- pm
+t -- sa
+
+t -- am
+am ..> ccm : <<include>>
+
+e -- aas
+e -- ca
+
+pm ..> ca : <<include>>
+pm <.. eva : <<extend>>
+c --|> e
+i --|> e
+i -- em
+c -- gam
+c -- go
+@enduml
